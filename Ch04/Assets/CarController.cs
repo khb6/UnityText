@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public float speedRatio = 0.1f;
+    public float speedRatio = 1.0f;
     public float stopSpeed = 0.04f; //퍼블릭 밑에는 프라이빗이고 퍼블릿은 값을 많이 수정할때 좋음
     public float decreaseRate = 0.97f;
 
