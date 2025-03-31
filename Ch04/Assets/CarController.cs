@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public float speedtRatio = 0.1f;
+    public float speedRatio = 0.1f;
     public float stopSpeed = 0.04f; //퍼블릭 밑에는 프라이빗이고 퍼블릿은 값을 많이 수정할때 좋음
     public float decreaseRate = 0.97f;
 
     float speed = 0;
     Vector2 startPos;
     Vector2 endPos;
+    AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 60;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,7 +31,8 @@ public class CarController : MonoBehaviour
         {
             endPos = Input.mousePosition;
             float swipeLength = endPos.x - startPos.x;
-            speed = swipeLength * speedtRatio /10000.0f;
+            speed = swipeLength * speedRatio /10000.0f;
+            audio.Play();
         }
 
         transform.Translate(speed, 0, 0); //got component 함수 이해하기

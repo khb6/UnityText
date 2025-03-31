@@ -29,4 +29,9 @@ public class GameManager : MonoBehaviour
         distance.GetComponent<TextMeshProUGUI>().text 
             = "Distance : " + length.ToString("F2") + "m";
     }
+
+    public void QuitGame()
+    {
+        Application .Quit();
+    }
 }
