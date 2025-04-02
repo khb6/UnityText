@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManager;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,5 +34,12 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application .Quit();
+    }
+
+    public void ReloadScene()
+    {
+        string currentScene = SceneManager.GetActiveScene().name; //현재 엑티브 되있는 신을 가져와서 씀
+        SceneManager.LoadScene("currentScene");
+        
     }
 }

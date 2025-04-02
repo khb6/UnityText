@@ -13,6 +13,10 @@ public class CarController : MonoBehaviour
     Vector2 endPos;
     AudioSource audio;
 
+
+    bool gameEnded = false;
+    bool carStarted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,9 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (gameEnded) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             startPos = Input.mousePosition;
@@ -33,6 +40,7 @@ public class CarController : MonoBehaviour
             float swipeLength = endPos.x - startPos.x;
             speed = swipeLength * speedRatio /10000.0f;
             audio.Play();
+            carStarted = true;
         }
 
         transform.Translate(speed, 0, 0); //got component 함수 이해하기
@@ -41,9 +49,10 @@ public class CarController : MonoBehaviour
 
         speed *= decreaseRate;
 
-        if(speed < stopSpeed)
+        if(carStarted && speed < stopSpeed)
         {
             speed = 0f;
+            gameEnded = true;
         }
     }
 }
