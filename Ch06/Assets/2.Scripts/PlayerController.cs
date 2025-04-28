@@ -5,6 +5,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     Rigidbody2D rigid2D;
+    Animator animator;
     public float jumpForce = 300f;
     public float walkForce = 10f;
     float maxWalkSpeed = 2f;
@@ -13,6 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         rigid2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -39,5 +41,7 @@ public class NewBehaviourScript : MonoBehaviour
         {
             transform.localScale = new Vector3(key, 1, 1);
         }
+
+        animator.speed = speedX / 2.0f;
     }
 }
