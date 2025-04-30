@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoveCloud : MonoBehaviour
 {
-    float moveSpeed = 0.01f;
-    float maxwidth = 5f;
+    float moveSpeed = 0.05f;
+    float maxwidth = 1f;
 
     int direction = 1;
     // Update is called once per frame
