@@ -16,7 +16,7 @@ public class BamsongiGenerator : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 worldDir = ray.direction;
             //bamsongi.GetComponent<BamsongiController>().Shoot(new Vector3(0, 200, 2000));
-            bamsongi.GetComponent<BamsongiController>().Shoot(worldDir.normalized * 2000);
+            bamsongi.GetComponent<BamsongiController>().Shoot(worldDir * 2000);
 
         }
     }
