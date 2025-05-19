@@ -10,11 +10,19 @@ public class BamsongiGenerator : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject bamsongi = Instantiate(bamsongiPrefab, transform.position,
-                transform.rotation);
+            GameObject bamsongi = Instantiate
+                (bamsongiPrefab, 
+                 transform.position,
+                 transform.rotation);
+
+            bamsongi.transform.position = new Vector3
+                (transform.position.x,
+                 transform.position.y + 1,
+                 transform.position.z + 1);
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 worldDir = ray.direction;
+
             //bamsongi.GetComponent<BamsongiController>().Shoot(new Vector3(0, 200, 2000));
             bamsongi.GetComponent<BamsongiController>().Shoot(worldDir * 2000);
 
