@@ -6,17 +6,31 @@ public class GenerateTarget : MonoBehaviour
 {
 
     public GameObject targetPrefab;
+    float minDistance = 10;
 
     Transform[] destinations;
     // Start is called before the first frame update
     void Start()
     {
         destinations = GetComponentsInChildren<Transform>();
+        Debug.Log("Num of children : " + destinations.Length);
+        player + GameObject.Find("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GenerateTargetObject(Vector3 playerPosition)
     {
-        
+        int index;
+        Vector3 position;
+
+        do
+        {
+            index = Random.Range(1, destinations.Length);
+            position = destinations[index].position;
+        } while (Vector3.Distance(position, player.Position) < minDistance);
+        index = Random.Range(1, destinations.Length);
+
+        GameObject target = Instantiate(targetPrefab,
+            destinations[index].position, Quaternion.identity);
+        target.transform.SetParent(destinations[index]);
     }
 }
