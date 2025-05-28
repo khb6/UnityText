@@ -50,7 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: db7ec9c6d396eee4888f17992783f6de, type: 3}
       propertyPath: m_Name
-      value: apple
+      value: applePrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: db7ec9c6d396eee4888f17992783f6de, type: 3}
+      propertyPath: m_TagString
+      value: Apple
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59,6 +63,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db7ec9c6d396eee4888f17992783f6de, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8627967889187810197}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db7ec9c6d396eee4888f17992783f6de, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8382834131376156808}
   m_SourcePrefab: {fileID: 100100000, guid: db7ec9c6d396eee4888f17992783f6de, type: 3}
 --- !u!1 &3201196001939796140 stripped
 GameObject:
@@ -78,3 +85,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropSpeed: -0.03
+--- !u!135 &-8382834131376156808
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3201196001939796140}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0.28, z: 0}

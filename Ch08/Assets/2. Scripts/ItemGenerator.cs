@@ -7,7 +7,18 @@ public class ItemGenerator : MonoBehaviour
     public GameObject applePrefab;
     public GameObject bombPrefab;
 
+   
+
+    float bombRatio = 0.2f;
+
+    public void SetParameters(float span, float speed, float bombRatio)
+    {
+        this.span = span;
+        this.speed = speed;
+        this.bombRatio = bombRatio;
+    }
     float span = 1f;
+    float speed = -0.03f;
     float delta = 0f;
 
     // Start is called before the first frame update
@@ -23,7 +34,21 @@ public class ItemGenerator : MonoBehaviour
 
         if (delta > span)
         {
-            Instantiate(applePrefab, transform.position, transform.rotation);
+            GameObject item;
+            float dice = Random.Range(0f, 1f);
+            if (dice > bombRatio)
+            {
+                item = Instantiate(bombPrefab, transform.position, transform.rotation);
+            }
+            else
+            {
+                item = Instantiate(applePrefab, transform.position, transform.rotation);
+            }
+            float x = Random.Range(-1, 2);
+            float z = Random.Range(-1, 2);
+            item.transform.position = new Vector3(x, transform.position.y, z);
+            item.GetComponent<ItemController>().dropSpeed = speed;
+        
             delta = 0;
         }
     }

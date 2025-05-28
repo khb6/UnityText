@@ -7,6 +7,8 @@ public class BasketController : MonoBehaviour
     public AudioClip appleSE;
     public AudioClip bombSE;
 
+    GameObject manager;
+
 
     AudioSource aud;
 
@@ -15,6 +17,7 @@ public class BasketController : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         aud = GetComponent<AudioSource>();
+        manager = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
@@ -40,16 +43,19 @@ public class BasketController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Apple") 
+            if(other.gameObject.tag == "Apple") 
             {
             //  Debug.Log("»ç°ú¸¦ Àâ¾Ò´Ù.");
+            manager.GetComponent<GameManager>().GetApple();
             aud.PlayOneShot(appleSE);
             }
             else if (other.gameObject.tag == "Bomb")
             {
-                //Debug.Log("ÆøÅºÀ» Àâ¾Ò´Ù.");
-                aud.PlayOneShot(bombSE);
-        }
-        Destroy(other.gameObject);
+            //Debug.Log("ÆøÅºÀ» Àâ¾Ò´Ù.");
+            manager.GetComponent<GameManager>().GetBomb();
+            aud.PlayOneShot(bombSE);
+            }
+
+                Destroy(other.gameObject);
     }
 }
